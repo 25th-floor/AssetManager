@@ -77,6 +77,9 @@ class Module implements
         if (!$cacheControl instanceof \Zend\Http\Header\CacheControl) {
             $cacheControl = new \Zend\Http\Header\CacheControl();
             $cacheControl->addDirective('public');
+            $cacheControl->addDirective('max-age', 0);
+            $cacheControl->addDirective('must-revalidate');
+
             $headers->addHeader($cacheControl);
         }
 
